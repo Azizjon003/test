@@ -4,6 +4,13 @@ const bodyParser = require("body-parser");
 const app = express();
 const session = require("express-session");
 const Phone = require("../model/products");
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
